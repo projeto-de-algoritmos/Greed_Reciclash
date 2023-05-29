@@ -1,8 +1,8 @@
-
 let latinha, pet, anel, cobre;
 let valorLatinha = 6.48, valorPet = 1.69,
-    valorAnel = 2.71, ValorCobre = 38.00;
-let vp = [(latinha, 0.6) ];
+valorAnel = 2.71, valorCobre = 38.00;
+let vp = [];
+let capacidade = 50;
 
 document.getElementById('calcula').addEventListener('click', function() {
 
@@ -16,30 +16,43 @@ document.getElementById('calcula').addEventListener('click', function() {
   let pesoAnel = parseFloat(inputAnel);
   let pesoCobre = parseFloat(inputCobre);
 
-  let peso = [];
-  peso.push(pesoLatinha, pesoPet, pesoAnel, pesoCobre);
-
-  vp[0] = valorLatinha / peso[0];
-  let valorProdutoLatinha = vp[0]
-  vp[1] = valorPet / peso[1];
-  vp[2] = valorAnel / peso[2];
-  vp[3] = ValorCobre / peso[3];
-
-
-  sort(vp) {
-    ordernado = vp[(cobre, 3.p)]
-  }
-
-  let pi = peso[0] + peso[1] + peso[2] + peso[3];
-  let pt = 50;
+  let pesoTotal = [];
+  pesoTotal.push(pesoLatinha + pesoPet + pesoAnel + pesoCobre);
   
-  function knapsack() {
-    while (pt != 0 || pi === 0) {
+  console.log("pesoTotal " + pesoTotal)
+
+  vp[0] = valorLatinha / pesoLatinha;
+  vp[1] = valorPet / pesoPet;
+  vp[2] = valorAnel / pesoAnel;
+  vp[3] = valorCobre / pesoCobre;
+
+  let tupla = (latinha, pesoLatinha, vp[0], pet, pesoPet, vp[1],
+               anel, pesoAnel, vp[2], cobre, pesoCobre, vp[3])
+
+  console.log(tupla);
+
+  vp.sort();
+  vp.reverse();
+  
+  
+  function knapsack(capacidade, pesoTotal) {
         
-    }     
+        if(capacidade === 0 || pesoTotal === 0){
+          console.log("Carrinho vazio")
+          return 0
+        }
+
+        while(capacidade != 0){
+          
+        }
+        
+        return knapsack(capacidade, pesoInicial - 1, vp, pesoTotal)
   }
 
-  
+  let resultados = knapsack(capacidade, vp.length - 1, vp, pesoTotal);
+
+  console.log({capacidade, pesoTotal}, vp, pesoTotal);
+  console.log(resultados)
 })
 
 
