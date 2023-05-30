@@ -1,25 +1,36 @@
+let resultado = document.getElementById('resultado');
 document.getElementById('calcula').addEventListener('click', function() {
+  resultado.style.display = 'none';
 
   let pesoLatinha = document.getElementById('latinha').value;
   let pesoPet = document.getElementById('pet').value;
   let pesoAnel = document.getElementById('anel').value;
   let pesoCobre = document.getElementById('cobre').value;
 
-  let valorLatinha = pesoLatinha * 6.48;
-  let valorPet = pesoPet * 1.69;
-  let valorAnel = pesoAnel * 2.71;
-  let valorCobre = pesoCobre * 38.00;
+  if(pesoLatinha === '' || pesoLatinha < 0 || pesoPet === '' || pesoPet < 0 ||
+     pesoAnel === '' || pesoAnel < 0 || pesoCobre === '' || pesoCobre < 0) {
+    alert('Os valores de peso são inválidos. Certifique-se de inserir valores maiores ou iguais a zero.');
+  } else {
+    resultado.innerHTML = '<p style="font-weight: 600;">Resultado:</p>';
+    resultado.style.display = 'flex';
 
-  const items = [
-    { name: "latinha", weight: pesoLatinha, profit: valorLatinha }, // 10/64.8
-    { name: "pet", weight: pesoPet, profit: valorPet }, // 20/35.8
-    { name: "anel", weight: pesoAnel, profit: valorAnel }, // 30/81.3
-    { name: "cobre", weight: pesoCobre, profit: valorCobre }, // 40/1520  38
-  ];
-  const capacity = 50;
-  
-  const totalProfit = fractionalKnapsack(items, capacity);
-  console.log("Total Profit:", totalProfit);
+    let valorLatinha = pesoLatinha * 6.48;
+    let valorPet = pesoPet * 1.69;
+    let valorAnel = pesoAnel * 2.71;
+    let valorCobre = pesoCobre * 38.00;
+
+    const items = [
+      { name: "latinha", weight: pesoLatinha, profit: valorLatinha }, // 10/64.8
+      { name: "pet", weight: pesoPet, profit: valorPet }, // 20/35.8
+      { name: "anel", weight: pesoAnel, profit: valorAnel }, // 30/81.3
+      { name: "cobre", weight: pesoCobre, profit: valorCobre }, // 40/1520  38
+    ];
+    const capacity = 50;
+    
+    const totalProfit = fractionalKnapsack(items, capacity);
+    console.log("Total Profit:", totalProfit);
+    resultado.innerHTML += `Lucro total: R$${totalProfit.toFixed(2)}`
+  }
 
 })
 
@@ -40,15 +51,18 @@ function fractionalKnapsack(items, capacity) {
     if (currentItem.weight <= remainingCapacity) {
       totalProfit += currentItem.profit;
       remainingCapacity -= currentItem.weight;
-      console.log(`Item: ${currentItem.name}, Quantidade: ${currentItem.weight}`)
-      console.log(`Capacidade restante: ${remainingCapacity}`)
+      resultado.innerHTML += `
+        <p>Item: ${currentItem.name}, Quantidade: ${currentItem.weight}kg, Capacidade restante da moto: ${remainingCapacity}kg</p>
+      `
     } else {
       const fraction = remainingCapacity / currentItem.weight;
       let weightConsidered = fraction * currentItem.weight;
       console.log(`Item: ${currentItem.name}, Quantidade: ${weightConsidered}`)
       totalProfit += fraction * currentItem.profit;
       remainingCapacity = 0;
-      console.log(`Capacidade restante: ${remainingCapacity}`)
+      resultado.innerHTML += `
+        <p>Item: ${currentItem.name}, Quantidade: ${weightConsidered}kg, Capacidade restante da moto: ${remainingCapacity}kg</p>
+      `;
     }
   }
 

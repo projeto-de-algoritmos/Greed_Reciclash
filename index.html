@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reciclash</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -17,11 +18,30 @@
       <section>
         <p>
           Um trabalhador de coleta seletiva de lixo possui uma
-          moto com um carrinho que pode carregar até 50kg, ele 
+          moto com um carrinho que pode carregar até 50Kg, ele 
           deseja saber qual a melhor carga de materiais que ele 
           pode fazer para vender à uma cooperativa de reciclagem 
           de forma que ganhe o maior valor agregado possível em uma viagem.
         </p>
+
+        <p>A lista de valores abaixo, mostra quanto vale cada Kg de material
+          reciclável por tipo de material.
+        </p>
+
+        <ol>
+          <li>Latinha: R$6.48</li>
+          <li>Pet:     R$1.69</li>
+          <li>Anel:    R$2.71</li>
+          <li>Cobre:   R$38.00</li>
+        </ol>
+
+        <p>
+          Essa calculadora ajudará o trabalhador a saber quanto de cada
+          item deve colocar em seu carrinho de forma que obtenha o maior
+          lucro possível em uma viagem só. Os itens abaixo podem ser 
+          particionados de forma que ele carregue o total de gramas desejado.
+        </p>
+
         <div class="valores">
           <div class="inputs">
             <label>
@@ -45,5 +65,6 @@
         </div>
       </section>
     </main>
+    <div id="resultado" style="display: none;"></div>
   </body>
 </html>
