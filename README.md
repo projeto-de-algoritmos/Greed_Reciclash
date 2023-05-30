@@ -38,7 +38,7 @@ Também é possível executar diretamente em seu navegador (caso tenha o projeto
 sua máquina), apenas copiando o path do arquivo `index.html` e colando no navegador.
 
 ## Video da Apresentação  
-[<img src="https://img.youtube.com/vi/NM-qwSLa1CY/maxresdefault.jpg%22%3E">](https://youtu.be/NM-qwSLa1CY)
+[<img src="https://img.youtube.com/vi/NM-qwSLa1CY/maxresdefault.jpg">](https://youtu.be/NM-qwSLa1CY)
 
 [Link do Vídeo](https://youtu.be/NM-qwSLa1CY)
 
