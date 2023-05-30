@@ -1,14 +1,9 @@
 document.getElementById('calcula').addEventListener('click', function() {
 
-  let inputLatinha = document.getElementById('latinha').value;
-  let inputPet = document.getElementById('pet').value;
-  let inputAnel = document.getElementById('anel').value;
-  let inputCobre = document.getElementById('cobre').value;
-  
-  let pesoLatinha = parseFloat(inputLatinha);
-  let pesoPet = parseFloat(inputPet);
-  let pesoAnel = parseFloat(inputAnel);
-  let pesoCobre = parseFloat(inputCobre);
+  let pesoLatinha = document.getElementById('latinha').value;
+  let pesoPet = document.getElementById('pet').value;
+  let pesoAnel = document.getElementById('anel').value;
+  let pesoCobre = document.getElementById('cobre').value;
 
   let valorLatinha = pesoLatinha * 6.48;
   let valorPet = pesoPet * 1.69;
@@ -16,10 +11,10 @@ document.getElementById('calcula').addEventListener('click', function() {
   let valorCobre = pesoCobre * 38.00;
 
   const items = [
-    { weight: pesoLatinha, profit: valorLatinha }, // 10/64.8
-    { weight: pesoPet, profit: valorPet }, // 20/35.8
-    { weight: pesoAnel, profit: valorAnel }, // 30/81.3
-    { weight: pesoCobre, profit: valorCobre }, // 40/1520  38
+    { name: "latinha", weight: pesoLatinha, profit: valorLatinha }, // 10/64.8
+    { name: "pet", weight: pesoPet, profit: valorPet }, // 20/35.8
+    { name: "anel", weight: pesoAnel, profit: valorAnel }, // 30/81.3
+    { name: "cobre", weight: pesoCobre, profit: valorCobre }, // 40/1520  38
   ];
   const capacity = 50;
   
@@ -45,10 +40,15 @@ function fractionalKnapsack(items, capacity) {
     if (currentItem.weight <= remainingCapacity) {
       totalProfit += currentItem.profit;
       remainingCapacity -= currentItem.weight;
+      console.log(`Item: ${currentItem.name}, Quantidade: ${currentItem.weight}`)
+      console.log(`Capacidade restante: ${remainingCapacity}`)
     } else {
       const fraction = remainingCapacity / currentItem.weight;
+      let weightConsidered = fraction * currentItem.weight;
+      console.log(`Item: ${currentItem.name}, Quantidade: ${weightConsidered}`)
       totalProfit += fraction * currentItem.profit;
       remainingCapacity = 0;
+      console.log(`Capacidade restante: ${remainingCapacity}`)
     }
   }
 

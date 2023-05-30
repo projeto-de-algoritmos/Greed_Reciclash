@@ -1,12 +1,23 @@
+body {
+  background-color: #607D8B;
+  font-family: 'Open Sans', sans-serif;
+}
+
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 40vh;
 }
 
 h1 {
   text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 72px;
+}
+
+label {
+  font-weight: 600;
 }
 
 .valores {
@@ -25,4 +36,17 @@ p {
 
 label {
   margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: background-color 500ms;
+}
+
+button:hover {
+  background-color: #0479d9;
 }
