@@ -20,10 +20,10 @@ document.getElementById('calcula').addEventListener('click', function() {
     let valorCobre = pesoCobre * 38.00;
 
     const items = [
-      { name: "latinha", weight: pesoLatinha, profit: valorLatinha }, // 10/64.8
-      { name: "pet", weight: pesoPet, profit: valorPet }, // 20/35.8
-      { name: "anel", weight: pesoAnel, profit: valorAnel }, // 30/81.3
-      { name: "cobre", weight: pesoCobre, profit: valorCobre }, // 40/1520  38
+      { name: "latinha", weight: pesoLatinha, profit: valorLatinha }, 
+      { name: "pet", weight: pesoPet, profit: valorPet }, 
+      { name: "anel", weight: pesoAnel, profit: valorAnel }, 
+      { name: "cobre", weight: pesoCobre, profit: valorCobre }, 
     ];
     const capacity = 50;
     
